@@ -3,9 +3,9 @@ name = "suborbital-macro"
 version = "0.15.1"
 edition = "2018"
 authors = ["cohix <connorjhicks@gmail.com>", "Florian Fromm <flrn.frmm@gmail.com>"]
-description = "Macro for setting up a Runnable"
+description = "Macro for setting up a Plugin"
 license = "Apache-2.0"
-repository = "https://github.com/suborbital/reactr"
+repository = "https://github.com/suborbital/sdk"
 homepage = "https://suborbital.dev"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

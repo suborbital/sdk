@@ -32,13 +32,13 @@ impl HostErr {
 	}
 }
 
-pub trait Runnable {
+pub trait Plugin {
 	fn run(&self, input: Vec<u8>) -> Result<Vec<u8>, RunErr>;
 }
 
-pub fn use_runnable(runnable: &'static dyn Runnable) {
+pub fn use_plugin(plugin: &'static dyn Plugin) {
 	unsafe {
-		STATE.runnable = Some(runnable);
+		STATE.plugin = Some(plugin);
 	}
 }
 
@@ -59,7 +59,7 @@ pub unsafe extern "C" fn allocate(size: i32) -> *const u8 {
 
 /// # Safety
 #[no_mangle]
-pub unsafe extern fn deallocate(pointer: *mut u8, size: i32) {
+pub unsafe extern "C" fn deallocate(pointer: *mut u8, size: i32) {
 	drop(Vec::from_raw_parts(pointer, size as usize, size as usize))
 }
 
@@ -71,7 +71,7 @@ pub unsafe extern "C" fn run_e(pointer: *mut u8, size: i32, ident: i32) {
 	// rebuild the memory into something usable
 	let in_bytes = Vec::from_raw_parts(pointer, size as usize, size as usize);
 
-	match execute_runnable(STATE.runnable, in_bytes) {
+	match execute_plugin(STATE.plugin, in_bytes) {
 		Ok(data) => {
 			return_result(data.as_ptr(), data.len() as i32, ident);
 		}
@@ -81,9 +81,9 @@ pub unsafe extern "C" fn run_e(pointer: *mut u8, size: i32, ident: i32) {
 	}
 }
 
-fn execute_runnable(runnable: Option<&dyn Runnable>, data: Vec<u8>) -> Result<Vec<u8>, RunErr> {
-	if let Some(runnable) = runnable {
-		return runnable.run(data);
+fn execute_plugin(plugin: Option<&dyn Plugin>, data: Vec<u8>) -> Result<Vec<u8>, RunErr> {
+	if let Some(plugin) = plugin {
+		return plugin.run(data);
 	}
-	Err(RunErr::new(-1, "No runnable set"))
+	Err(RunErr::new(-1, "No plugin set"))
 }

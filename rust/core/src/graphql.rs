@@ -1,5 +1,5 @@
 use crate::ffi;
-use crate::runnable::HostErr;
+use crate::plugin::HostErr;
 use crate::STATE;
 
 extern "C" {
