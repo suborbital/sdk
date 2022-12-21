@@ -41,16 +41,6 @@ export const FieldType = Object.freeze({
   5: "Query",
   "Query": 5,
 });
-export const QueryType = Object.freeze({
-  0: "Select",
-  "Select": 0,
-  1: "Insert",
-  "Insert": 1,
-  2: "Update",
-  "Update": 2,
-  3: "Delete",
-  "Delete": 3,
-});
 export class Env {
   addToImports(imports) {
   }
@@ -123,26 +113,6 @@ export class Env {
     const ret = this._exports['graphql-query'](ptr0, len0, ptr1, len1, clamp_host(arg2, 0, 4294967295));
     return ret;
   }
-  cacheSet(arg0, arg1, arg2, arg3) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const ptr0 = utf8_encode(arg0, realloc, memory);
-    const len0 = UTF8_ENCODED_LEN;
-    const val1 = arg1;
-    const len1 = val1.length;
-    const ptr1 = realloc(0, 0, 1, len1 * 1);
-    (new Uint8Array(memory.buffer, ptr1, len1 * 1)).set(new Uint8Array(val1.buffer, val1.byteOffset, len1 * 1));
-    const ret = this._exports['cache-set'](ptr0, len0, ptr1, len1, clamp_host(arg2, 0, 4294967295), clamp_host(arg3, 0, 4294967295));
-    return ret;
-  }
-  cacheGet(arg0, arg1) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const ptr0 = utf8_encode(arg0, realloc, memory);
-    const len0 = UTF8_ENCODED_LEN;
-    const ret = this._exports['cache-get'](ptr0, len0, clamp_host(arg1, 0, 4294967295));
-    return ret;
-  }
   requestGetField(arg0, arg1, arg2) {
     const memory = this._exports.memory;
     const realloc = this._exports["canonical_abi_realloc"];
@@ -154,46 +124,8 @@ export class Env {
     const ret = this._exports['request-get-field'](Number.isInteger(variant0) ? variant0 : FieldType[variant0], ptr1, len1, clamp_host(arg2, 0, 4294967295));
     return ret;
   }
-  getStaticFile(arg0, arg1) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const ptr0 = utf8_encode(arg0, realloc, memory);
-    const len0 = UTF8_ENCODED_LEN;
-    const ret = this._exports['get-static-file'](ptr0, len0, clamp_host(arg1, 0, 4294967295));
-    return ret;
-  }
-  dbExec(arg0, arg1, arg2) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const variant0 = arg0;
-    if (!(variant0 in QueryType))
-    throw new RangeError("invalid variant specified for QueryType");
-    const ptr1 = utf8_encode(arg1, realloc, memory);
-    const len1 = UTF8_ENCODED_LEN;
-    const ret = this._exports['db-exec'](Number.isInteger(variant0) ? variant0 : QueryType[variant0], ptr1, len1, clamp_host(arg2, 0, 4294967295));
-    return ret;
-  }
   getFfiResult(arg0, arg1) {
     const ret = this._exports['get-ffi-result'](clamp_host(arg0, 0, 4294967295), clamp_host(arg1, 0, 4294967295));
     return ret;
-  }
-  addFfiVar(arg0, arg1, arg2) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const ptr0 = utf8_encode(arg0, realloc, memory);
-    const len0 = UTF8_ENCODED_LEN;
-    const ptr1 = utf8_encode(arg1, realloc, memory);
-    const len1 = UTF8_ENCODED_LEN;
-    const ret = this._exports['add-ffi-var'](ptr0, len0, ptr1, len1, clamp_host(arg2, 0, 4294967295));
-    return ret;
-  }
-  returnAbort(arg0, arg1, arg2, arg3, arg4) {
-    const memory = this._exports.memory;
-    const realloc = this._exports["canonical_abi_realloc"];
-    const ptr0 = utf8_encode(arg0, realloc, memory);
-    const len0 = UTF8_ENCODED_LEN;
-    const ptr1 = utf8_encode(arg1, realloc, memory);
-    const len1 = UTF8_ENCODED_LEN;
-    this._exports['return-abort'](ptr0, len0, ptr1, len1, clamp_host(arg2, 0, 4294967295), clamp_host(arg3, 0, 4294967295), clamp_host(arg4, 0, 4294967295));
   }
 }

@@ -22,12 +22,6 @@ export enum FieldType {
   State = 4,
   Query = 5,
 }
-export enum QueryType {
-  Select = 0,
-  Insert = 1,
-  Update = 2,
-  Delete = 3,
-}
 export class Env {
   
   // The WebAssembly instance that this class is operating with.
@@ -92,12 +86,6 @@ export class Env {
   logMsg(msg: string, level: LogLevel, ident: number): void;
   fetchUrl(method: HttpMethod, url: string, body: Uint8Array, ident: number): number;
   graphqlQuery(endpoint: string, query: string, ident: number): number;
-  cacheSet(key: string, value: Uint8Array, ttl: number, ident: number): number;
-  cacheGet(key: string, ident: number): number;
   requestGetField(fieldType: FieldType, key: string, ident: number): number;
-  getStaticFile(name: string, ident: number): number;
-  dbExec(queryType: QueryType, name: string, ident: number): number;
   getFfiResult(ptr: number, ident: number): number;
-  addFfiVar(name: string, val: string, ident: number): number;
-  returnAbort(msg: string, file: string, lineNum: number, colNum: number, ident: number): void;
 }
