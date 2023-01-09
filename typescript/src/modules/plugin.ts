@@ -2,7 +2,7 @@ import Base from "./base";
 
 const encoder = new TextEncoder();
 
-export default class Runnable extends Base {
+export default class Plugin extends Base {
   returnResult(result: string | Uint8Array) {
     const bytes = typeof result === "string" ? encoder.encode(result) : result;
     this.env.returnResult(bytes, this.ident);
