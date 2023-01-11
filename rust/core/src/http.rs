@@ -3,7 +3,7 @@ pub mod method;
 use std::collections::BTreeMap;
 
 use crate::ffi;
-use crate::runnable::HostErr;
+use crate::plugin::HostErr;
 use crate::STATE;
 use method::Method;
 
@@ -30,15 +30,27 @@ pub fn options(url: &str, headers: Option<BTreeMap<&str, &str>>) -> Result<Vec<u
 	do_request(Method::OPTIONS.into(), url, None, headers)
 }
 
-pub fn post(url: &str, body: Option<Vec<u8>>, headers: Option<BTreeMap<&str, &str>>) -> Result<Vec<u8>, HostErr> {
+pub fn post(
+	url: &str,
+	body: Option<Vec<u8>>,
+	headers: Option<BTreeMap<&str, &str>>,
+) -> Result<Vec<u8>, HostErr> {
 	do_request(Method::POST.into(), url, body, headers)
 }
 
-pub fn put(url: &str, body: Option<Vec<u8>>, headers: Option<BTreeMap<&str, &str>>) -> Result<Vec<u8>, HostErr> {
+pub fn put(
+	url: &str,
+	body: Option<Vec<u8>>,
+	headers: Option<BTreeMap<&str, &str>>,
+) -> Result<Vec<u8>, HostErr> {
 	do_request(Method::PUT.into(), url, body, headers)
 }
 
-pub fn patch(url: &str, body: Option<Vec<u8>>, headers: Option<BTreeMap<&str, &str>>) -> Result<Vec<u8>, HostErr> {
+pub fn patch(
+	url: &str,
+	body: Option<Vec<u8>>,
+	headers: Option<BTreeMap<&str, &str>>,
+) -> Result<Vec<u8>, HostErr> {
 	do_request(Method::PATCH.into(), url, body, headers)
 }
 

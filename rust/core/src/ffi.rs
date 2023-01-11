@@ -1,12 +1,11 @@
 use std::slice;
 
-use crate::runnable::HostErr;
+use crate::plugin::HostErr;
 use crate::util;
 use crate::STATE;
 
 extern "C" {
 	fn get_ffi_result(pointer: *const u8, ident: i32) -> i32;
-	fn add_ffi_var(name_ptr: *const u8, name_len: i32, val_ptr: *const u8, val_len: i32, ident: i32) -> i32;
 }
 
 pub(crate) fn result(size: i32) -> Result<Vec<u8>, HostErr> {
@@ -40,16 +39,4 @@ pub(crate) fn result(size: i32) -> Result<Vec<u8>, HostErr> {
 	}
 
 	Ok(Vec::from(data))
-}
-
-pub(crate) fn add_var(name: &str, value: &str) {
-	unsafe {
-		add_ffi_var(
-			name.as_ptr(),
-			name.len() as i32,
-			value.as_ptr(),
-			value.len() as i32,
-			STATE.ident,
-		);
-	}
 }

@@ -1,8 +1,8 @@
-use suborbital::runnable::*;
+use suborbital::plugin::*;
 
 struct {{ .NameCamel }}{}
 
-impl Runnable for {{ .NameCamel }} {
+impl Plugin for {{ .NameCamel }} {
     fn run(&self, input: Vec<u8>) -> Result<Vec<u8>, RunErr> {
         let in_string = String::from_utf8(input).unwrap();
     
@@ -12,9 +12,9 @@ impl Runnable for {{ .NameCamel }} {
 
 
 // initialize the runner, do not edit below //
-static RUNNABLE: &{{ .NameCamel }} = &{{ .NameCamel }}{};
+static PLUGIN: &{{ .NameCamel }} = &{{ .NameCamel }}{};
 
 #[no_mangle]
 pub extern fn _start() {
-    use_runnable(RUNNABLE);
+    use_plugin(PLUGIN);
 }
