@@ -22,14 +22,14 @@ dependencies = [
 
 [[package]]
 name = "suborbital"
-version = "0.16.2"
+version = "0.16.3"
 dependencies = [
  "suborbital-macro",
 ]
 
 [[package]]
 name = "suborbital-macro"
-version = "0.16.2"
+version = "0.16.3"
 dependencies = [
  "quote",
  "syn",
