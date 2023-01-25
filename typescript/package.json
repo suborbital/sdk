@@ -1,9 +1,10 @@
 {
   "name": "@suborbital/plugin",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "description": "Suborbital's Plugin API for JavaScript/TypeScript",
   "main": "dist/index.js",
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "tsc --project .",
     "format": "prettier . --write",
     "check-format": "prettier . --check",
