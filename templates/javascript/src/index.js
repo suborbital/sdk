@@ -1,7 +1,7 @@
 import "fastestsmallesttextencoderdecoder-encodeinto/EncoderDecoderTogether.min.js";
 import { run } from "./lib";
 
-import { setup, runnable } from "@suborbital/plugin";
+import { setup, plugin } from "@suborbital/plugin";
 
 const decoder = new TextDecoder();
 
@@ -12,5 +12,5 @@ export function run_e(payload, ident) {
   const input = decoder.decode(payload);
   const result = run(input);
 
-  runnable.returnResult(result);
+  plugin.returnResult(result);
 }
