@@ -1,7 +1,7 @@
 import "fastestsmallesttextencoderdecoder-encodeinto/EncoderDecoderTogether.min.js";
 import { run } from "./lib";
 
-import { setup, runnable } from "@suborbital/runnable";
+import { setup, runnable } from "@suborbital/plugin";
 
 const decoder = new TextDecoder();
 

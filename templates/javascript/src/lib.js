@@ -1,4 +1,4 @@
-import { log } from "@suborbital/runnable";
+import { log } from "@suborbital/plugin";
 
 export const run = (input) => {
   let message = "Hello, " + input;
