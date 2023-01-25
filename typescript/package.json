@@ -1,6 +1,6 @@
 {
   "name": "@suborbital/plugin",
-  "version": "0.16.2",
+  "version": "0.16.3",
   "description": "Suborbital's Plugin API for JavaScript/TypeScript",
   "main": "dist/index.js",
   "scripts": {
