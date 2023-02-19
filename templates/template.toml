@@ -1,5 +1,6 @@
+[templates]
 # Template Name
-[myJavaScriptTemplate]
+[templates.myJavaScriptTemplate]
 # Template source root relative to the location of the manifest
 path = "javascript"
 # Contents to be displayed by the editor
@@ -9,9 +10,8 @@ lang = "javascript"
 # SDK version used by this template
 api_version = "0.16.3"
 
-[myTinyGoTemplate]
+[templates.myTinyGoTemplate]
 path = "tinygo"
 main = "src/lib.ts"
 lang = "typescript"
 api_version = "0.16.3"
-
