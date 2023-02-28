@@ -12,6 +12,6 @@ api_version = "0.16.3"
 
 [templates.myTinyGoTemplate]
 path = "tinygo"
-main = ""main.go"
+main = "main.go"
 lang = "tinygo"
 api_version = "0.16.3"
