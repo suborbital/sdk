@@ -13,6 +13,6 @@
 
     [templates.wasmlab]
         path = "python"
-        main = "main.py"
+        main = "plugin.py"
         lang = "python"
         api_version = "0.16.3"
