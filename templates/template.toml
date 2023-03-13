@@ -1,0 +1,18 @@
+[templates]
+
+# Template Name
+[templates.myJavaScriptTemplate]
+# Template source root relative to the location of the manifest
+path = "javascript"
+# Contents to be displayed by the editor
+main = "src/lib.js"
+# Source language
+lang = "javascript"
+# SDK version used by this template
+api_version = "0.16.3"
+
+[templates.myTinyGoTemplate]
+path = "tinygo"
+main = "main.go"
+lang = "tinygo"
+api_version = "0.16.3"
