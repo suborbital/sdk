@@ -1,4 +1,5 @@
 [templates]
+
 # Template Name
 [templates.myJavaScriptTemplate]
 # Template source root relative to the location of the manifest
